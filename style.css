@@ -87,27 +87,6 @@ body {
   color: #0000FF;
 }
 
-#app .like-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #fff;
-  border: none;
-  cursor: pointer;
-  padding: 10px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  margin-bottom: 10px;
-}
-
-#app .like-button:hover {
-  background-color: #f2f2f2;
-}
-
-#app .like-button span {
-  margin-left: 5px;
-  font-weight: bold;
-}
- 
 #app footer {
   background-color: #fff;
   padding: 10px;
@@ -118,4 +97,28 @@ body {
   margin: 0;
   font-size: 14px;
   color: #A8A8A8;
+}
+
+.app-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.app-nav a {
+  color: #000;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.reload-button {
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+  cursor: pointer;
+  color: #000;
+  font-weight: bold;
+  margin-right: 20px;
 }

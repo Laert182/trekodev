@@ -2,37 +2,59 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Meu App de Vídeos Curtos</title>
+  <title>TFilmes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <script>"botaoini.js"</script>
 </head>
 <body>
   <div id="app">
     <header>
-      <h1>Meu App de Vídeos Curtos</h1>
+      <h1>TFilmes</h1>
     </header>
     <main>
       <div class="video-container">
         <video controls>
           <source src="teste.mp4" type="video/mp4">
         </video>
-        <div class="actions">
-          <button class="like-button">Like</button>
-        </div>
+        <button class="like-button">Like</button>
       </div>
-      <div class="user-info">
-        <img src="user1.jpg" alt="Nome do usuário">
-        <h3>Nome do usuário</h3>
-      </div>
-      <div class="description">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultricies ullamcorper eros, et vestibulum nunc eleifend
+      <div class="actions">
+        <button class="like-button">Like</button>
+        <button>Comment</button>
       </div>
     </main>
     <footer>
+      <nav class="app-nav">
+        <a href="#">Início</a>
+        <a href="#">Amigos</a>
+        <a href="#" id="create-video">Criar Vídeo</a>
+        <a href="#">Caixa de Mensagens</a>
+        <a href="#">Perfil</a>
+      </nav>
       <p>Copyright © 2023
-        <a href="#">Meu App de Vídeos Curtos</a>
+        <a href="#">TFilmes</a>
       </p>
     </footer>
   </div>
+  <script>
+    const createVideoButton = document.getElementById("create-video");
+    createVideoButton.addEventListener("click", () => {
+      // Verifica se o navegador suporta a API do getUserMedia
+      if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({ video: true })
+          .then(function(stream) {
+            // Define o stream da câmera no elemento de vídeo
+            const videoElement = document.querySelector("video");
+            videoElement.srcObject = stream;
+          })
+          .catch(function(error) {
+            console.error("Ocorreu um erro ao acessar a câmera:", error);
+          });
+      } else {
+        console.error("Este navegador não suporta a API do getUserMedia.");
+      }
+    });
+  </script>
 </body>
 </html>
